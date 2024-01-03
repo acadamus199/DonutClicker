@@ -56,11 +56,11 @@ class MainActivity : AppCompatActivity() {
         }
         sound.setOnClickListener{
             if(bool){
-                AudioStop()
+                AudioStart()
                 bool = false
                 sound.setImageResource(R.drawable.play)
             }else{
-                AudioStart()
+                AudioStop()
                 bool = true
                 sound.setImageResource(R.drawable.mute)
             }
