@@ -4,33 +4,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity">
+    android:background="@color/third_pink"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/primary_pink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/shop"
+            android:layout_width="71dp"
+            android:layout_height="67dp"
+            android:clickable="true"
+            app:srcCompat="@drawable/outline_arrow_back_24" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/primary_pink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/woodenBoard"
+        android:layout_width="253dp"
+        android:layout_height="266dp"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="79dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/logo"
+        app:srcCompat="@drawable/hanging_board" />
 
     <TextView
         android:id="@+id/counter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="That's the second screen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="84dp"
+        android:gravity="center_horizontal"
+        android:paddingHorizontal="5dp"
+        android:text="0"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/woodenBoard"
+        app:layout_constraintEnd_toEndOf="@+id/woodenBoard"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="@+id/woodenBoard" />
 
     <ImageView
-        android:id="@+id/donut_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="137dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginEnd="146dp"
-        android:layout_marginBottom="187dp"
-        android:clickable="true"
-        android:contentDescription="@string/bottom_sheet_behavior"
-        android:src="@drawable/ic_launcher_background"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/logo"
+        android:layout_width="170dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:clickable="false"
+        android:rotation="25"
+        android:rotationX="0"
+        android:rotationY="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/counter"
-        tools:srcCompat="@drawable/ic_launcher_background" />
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/coin"
+        android:layout_width="44dp"
+        android:layout_height="36dp"
+        app:layout_constraintBottom_toBottomOf="@+id/woodenBoard"
+        app:layout_constraintEnd_toStartOf="@+id/counter"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/woodenBoard"
+        app:layout_constraintTop_toTopOf="@+id/woodenBoard"
+        app:layout_constraintVertical_bias="0.63"
+        app:srcCompat="@drawable/coin" />
+
+    <ImageView
+        android:id="@+id/GIF"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="119dp"
+        android:layout_marginEnd="159dp"
+        android:layout_marginBottom="233dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/woodenBoard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
