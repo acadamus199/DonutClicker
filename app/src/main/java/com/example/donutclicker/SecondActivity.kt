@@ -4,6 +4,8 @@ import android.content.Intent
 import android.graphics.ImageDecoder
 import android.graphics.drawable.AnimatedImageDrawable
 import android.graphics.drawable.Drawable
+import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -27,6 +29,8 @@ class SecondActivity : AppCompatActivity() {
         }.start()
 
 
+
+
         imageView.setOnClickListener{
             if(money == 100) {
                 money -= 100
@@ -39,6 +43,16 @@ class SecondActivity : AppCompatActivity() {
             }else{
                 Toast.makeText(this, "Bring me 100 money", Toast.LENGTH_SHORT).show()
             }
+            var musicID = R.raw.cat_meow1
+            val rnd = (1..2).random()
+            when(rnd){
+                1 -> musicID = R.raw.cat_meow1
+                2 -> musicID = R.raw.cat_meow2
+            }
+            val mp = MediaPlayer()
+            mp.setDataSource(this,(Uri.parse("android.resource://"+this.packageName+"/"+musicID)))
+            mp.prepare()
+            mp.start()
         }
 
         findViewById<ImageView>(R.id.shop).setOnClickListener {
