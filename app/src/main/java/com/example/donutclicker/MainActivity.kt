@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         val sound = findViewById<ImageView>(R.id.sound)
         var mp = MediaPlayer()
         var bool = true
-        var music = true
         var unlockAuto = intent.getBooleanExtra("auto",false)
         if(unlockAuto){
             multiplier = 2
@@ -92,8 +91,12 @@ class MainActivity : AppCompatActivity() {
 
         //Changing window
         shop.setOnClickListener {
-            music = false
-            startActivity(Intent(this, SecondActivity::class.java).putExtra("money",counting))
+            AudioStop()
+            val bundle = Bundle()
+            if(intent.getBooleanExtra("block",false))
+                bundle.putBoolean("visible",false)
+            bundle.putInt("money",counting)
+            startActivity(Intent(this, SecondActivity::class.java).putExtras(bundle))
         }
     }
 }

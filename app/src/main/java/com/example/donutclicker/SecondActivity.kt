@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +19,7 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.activity_second)
 
         var money = intent.getIntExtra("money",0)
+        var clickable = intent.getBooleanExtra("visible", true)
         val imageView: ImageView = findViewById<ImageView>(R.id.GIF)
 
         findViewById<TextView>(R.id.counter).text = money.toString()
@@ -28,18 +30,17 @@ class SecondActivity : AppCompatActivity() {
             (drawable as? AnimatedImageDrawable)?.start()
         }.start()
 
-
-
+        imageView.isVisible = clickable
 
         imageView.setOnClickListener{
-            if(money == 100) {
+            if(money >= 10) {
                 money -= 100
-                imageView.isClickable = false
                 var bundle = Bundle()
                 bundle.putInt("money", money)
                 bundle.putBoolean("auto", true)
+                bundle.putBoolean("block",true)
                 startActivity(Intent(this, MainActivity::class.java).putExtras(bundle))
-                Toast.makeText(this, "U've been blessed by multiplier", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "U've been blessed with 2x multiplier", Toast.LENGTH_SHORT).show()
             }else{
                 Toast.makeText(this, "Bring me 100 money", Toast.LENGTH_SHORT).show()
             }
