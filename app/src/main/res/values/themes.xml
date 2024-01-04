@@ -3,7 +3,10 @@
     <style name="Base.Theme.DonutClicker" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/third_pink</item>
     </style>
 
-    <style name="Theme.DonutClicker" parent="Base.Theme.DonutClicker" />
+    <style name="Theme.DonutClicker" parent="Base.Theme.DonutClicker">
+        <item name="android:colorBackground">@color/third_pink</item>
+    </style>
 </resources>

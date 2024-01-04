@@ -32,8 +32,8 @@
             android:layout_marginHorizontal="10dp"
             android:layout_alignParentRight="true"
             android:clickable="true"
-            android:src="@drawable/mute"
-            tools:srcCompat="@drawable/mute" />
+            android:src="@drawable/play"
+            tools:srcCompat="@drawable/play" />
 
     </RelativeLayout>
 

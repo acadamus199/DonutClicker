@@ -19,8 +19,9 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.activity_second)
 
         var money = intent.getIntExtra("money",0)
-        var clickable = intent.getBooleanExtra("visible", true)
-        val imageView: ImageView = findViewById<ImageView>(R.id.GIF)
+        val clickable = intent.getBooleanExtra("visible", true)
+        val imageView: ImageView = findViewById(R.id.GIF)
+        val outOfOrder = findViewById<ImageView>(R.id.Out_ofOrder)
 
         findViewById<TextView>(R.id.counter).text = money.toString()
         Thread{
@@ -31,11 +32,12 @@ class SecondActivity : AppCompatActivity() {
         }.start()
 
         imageView.isVisible = clickable
+        outOfOrder.isVisible = intent.getBooleanExtra("outOfOrder",false)
 
         imageView.setOnClickListener{
             if(money >= 100) {
                 money -= 100
-                var bundle = Bundle()
+                val bundle = Bundle()
                 bundle.putInt("money", money)
                 bundle.putBoolean("auto", true)
                 bundle.putBoolean("block",true)
@@ -45,8 +47,7 @@ class SecondActivity : AppCompatActivity() {
                 Toast.makeText(this, "Bring me 100 money", Toast.LENGTH_SHORT).show()
             }
             var musicID = R.raw.cat_meow1
-            val rnd = (1..2).random()
-            when(rnd){
+            when((1..2).random()){
                 1 -> musicID = R.raw.cat_meow1
                 2 -> musicID = R.raw.cat_meow2
             }
