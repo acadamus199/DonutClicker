@@ -33,7 +33,7 @@ class SecondActivity : AppCompatActivity() {
         imageView.isVisible = clickable
 
         imageView.setOnClickListener{
-            if(money >= 10) {
+            if(money >= 100) {
                 money -= 100
                 var bundle = Bundle()
                 bundle.putInt("money", money)
